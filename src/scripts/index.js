@@ -15,7 +15,13 @@
 
 
 $( document ).ready(function() {
+    //navigation blur effect
     $('.b-menu').on('click', function () {
-        $('.container-fluid').toggleClass('blur');
+        $('.landing-page').toggleClass('blur');
     });
+
+    //is loading landing page effect
+    setTimeout(function() {
+        $("#main").removeClass("is-loading");
+    }, 200);
 });
