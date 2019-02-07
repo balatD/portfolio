@@ -1,12 +1,9 @@
 <!doctype html>
 <html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="assets/css/style.css">
-</head>
+{{#> head-block}}
+	{{> head }}
+{{/head-block}}
+
 <body>
 {{#> header-block}}
 	{{> header/header }}
@@ -24,7 +21,7 @@
 {{/footer-block}}
 
 {{#> scripts-block}}
-	<script src="assets/js/script.js"></script>
+	<script src="./assets/js/script.js"></script>
 {{/scripts-block}}
 </body>
 </html>

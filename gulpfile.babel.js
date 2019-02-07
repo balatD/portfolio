@@ -6,7 +6,6 @@ import handlebars from 'gulp-compile-handlebars';
 import concat from 'gulp-concat'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
-import notify from 'gulp-notify'
 import imagemin from 'gulp-imagemin'
 import rename from 'gulp-rename'
 import autoprefixer from 'gulp-autoprefixer'
@@ -106,12 +105,6 @@ gulp.task('handlebars', () => {
 
 gulp.task('styles', () => {
 	return gulp.src(routes.styles.scss)
-		.pipe(plumber({
-			errorHandler: notify.onError({
-				title: 'Error: Compiling SCSS.',
-				message: '<%= error.message %>'
-			})
-		}))
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			outputStyle: 'compressed'
@@ -122,22 +115,12 @@ gulp.task('styles', () => {
 		.pipe(rename('style.css'))
 		.pipe(gulp.dest(routes.styles.css))
 		.pipe(browserSync.stream())
-		.pipe(notify({
-			title: 'SCSS Compiled and Minified succesfully!',
-			message: 'scss task completed.'
-		}));
 });
 
 /* Scripts (js) ES6 => ES5, minify and concat into a single file. */
 
 gulp.task('scripts', () => {
 	return gulp.src(routes.scripts.js)
-		.pipe(plumber({
-			errorHandler: notify.onError({
-				title: 'Error: Babel and Concat failed.',
-				message: '<%= error.message %>'
-			})
-		}))
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(babel())
@@ -145,10 +128,6 @@ gulp.task('scripts', () => {
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(routes.scripts.jsmin))
 		.pipe(browserSync.stream())
-		.pipe(notify({
-			title: 'JavaScript Minified and Concatenated!',
-			message: 'your js files has been minified and concatenated.'
-		}));
 });
 
 /* Image compressing task */
@@ -172,17 +151,7 @@ gulp.task('ftp', () => {
 		base: routes.deployDirs.baseDir,
 		buffer: false
 	})
-		.pipe(plumber({
-			errorHandler: notify.onError({
-				title: 'Error: Deploy failed.',
-				message: '<%= error.message %>'
-			})
-		}))
 		.pipe(connection.dest(routes.deployDirs.ftpUploadDir))
-		.pipe(notify({
-			title: 'Deploy succesful!',
-			message: 'Your deploy has been done!.'
-		}));
 });
 
 gulp.task('surge', () => {
@@ -197,17 +166,7 @@ gulp.task('surge', () => {
 gulp.task('beautify', () => {
 	return gulp.src(routes.scripts.js)
 		.pipe(beautify({indentSize: 4}))
-		.pipe(plumber({
-			errorHandler: notify.onError({
-				title: 'Error: Beautify failed.',
-				message: '<%= error.message %>'
-			})
-		}))
 		.pipe(gulp.dest(routes.scripts.base))
-	.pipe(notify({
-		title: 'JS Beautified!',
-		message: 'beautify task completed.'
-	}));
 });
 
 /* Serving (browserSync) and watching for changes in files */
@@ -230,18 +189,8 @@ gulp.task('uncss', () => {
 			html: [routes.files.htmlFiles],
 			ignore: ['*:*']
 		}))
-		.pipe(plumber({
-			errorHandler: notify.onError({
-				title: 'Error: UnCSS failed.',
-				message: '<%= error.message %>'
-			})
-		}))
 		.pipe(cssmin())
 		.pipe(gulp.dest(routes.styles.css))
-		.pipe(notify({
-			title: 'Removed unusued CSS',
-			message: 'UnCSS completed!'
-		}));
 });
 
 /* Extract CSS critical-path */
@@ -258,17 +207,7 @@ gulp.task('critical', () => {
 			width: 1300,
 			height: 900
 		}))
-			.pipe(plumber({
-				errorHandler: notify.onError({
-					title: 'Error: Critical failed.',
-					message: '<%= error.message %>'
-				})
-			}))
 			.pipe(gulp.dest(baseDirs.dist))
-			.pipe(notify({
-				title: 'Critical Path completed!',
-				message: 'css critical path done!'
-			}));
 });
 
 gulp.task('icons', function() {
