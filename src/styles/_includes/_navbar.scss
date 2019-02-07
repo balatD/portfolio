@@ -62,7 +62,7 @@ $b-pad-top: ($b-height / 2 - $b-bun-width-half); //Vertically centers bun in men
 
 body {
   &:after {
-    background: color(primary);
+    background: rgba(255, 255, 255, 0.7);
     content: '';
     height: 100%;
     left: 0;
@@ -86,6 +86,9 @@ body {
 }
 
 .b-nav {
+  & a {
+    text-decoration: none;
+  }
   position: absolute;
   z-index: 11;
 
@@ -237,4 +240,14 @@ body {
       color: color(complement);
     }
   }
+}
+
+.brand-logo {
+  & h2 {
+    float: right;
+  }
+}
+
+.blur {
+  filter: blur(3px);
 }

@@ -12,3 +12,10 @@
         });
     }, false);
 })();
+
+
+$( document ).ready(function() {
+    $('.b-menu').on('click', function () {
+        $('.container-fluid').toggleClass('blur');
+    });
+});
