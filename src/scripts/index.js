@@ -155,9 +155,10 @@ $( document ).ready(function() {
 
                 var phrases = [
                     'Dragan Balatinac',
-                    'frontend developer',
-                    'backend developer',
-                    'still a intern'
+                    'trainee frontend developer',
+                    'trainee backend developer',
+                    'photography',
+                    'guitar / drums'
                 ];
 
 

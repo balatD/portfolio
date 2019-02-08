@@ -3,4 +3,12 @@ body {
   & h3 {
     color: dimgrey;
   }
+  .container-fluid {
+    & h1 {
+      font-size: 1.8rem;
+    }
+    & h3 {
+      font-size: 1rem;
+    }
+  }
 }
