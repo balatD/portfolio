@@ -24,7 +24,6 @@ $b-trans-speed: .4s; //Transition speed settings
 $b-transition: all $b-trans-speed ease; //Transitions
 
 $b-font-size: 24px; //Font size of brand and links
-$b-font-family: Helvetica-Neue, Helvetica, Arial, sans-serif; //Font family of the brand and links
 $b-font-weight: 300; //Font weight of brand and links
 $b-txt-pad: 30px; //Left padding on both brand and links
 
@@ -88,6 +87,10 @@ body {
 
 .b-nav {
   & a {
+    &:hover {
+      color: black;
+    }
+
     text-decoration: none;
   }
   position: absolute;
@@ -130,7 +133,6 @@ body {
   background: transparent;
   border-left: color(complement, normal, 0) solid $b-border-width;
   color: color(complement);
-  font-family: $b-font-family;
   font-size: $b-font-size;
   font-weight: $b-font-weight;
   margin-left: $b-margin-left;
@@ -191,7 +193,6 @@ body {
 
 .b-brand {
   color: color(primary);
-  font-family: $b-font-family;
   font-size: $b-font-size;
   font-weight: $b-font-weight;
   margin-left: $b-txt-pad;
