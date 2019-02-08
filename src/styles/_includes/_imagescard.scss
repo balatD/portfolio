@@ -44,7 +44,8 @@
   background-size: cover;
   background-position: center;
   box-shadow: -2px 2px 10px 0px rgba(#444, 0.4);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  filter: grayscale(0);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
   cursor: pointer;
   counter-increment: item-counter;
 
@@ -59,12 +60,13 @@
   &:hover {
     transform: scale(1.05);
     box-shadow: 1px 3px 10px 7px rgba(68,68,68,0.3);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    filter: grayscale(1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 
-    .item-description p {
+    & .item-description {
       color: white;
       opacity: 1;
-      transition: opacity 0s linear 0s, opacity 300ms;
+      transition: opacity 0s linear 0s, opacity 300ms, background-image 0.3s ease-in-out;
     }
 
   }
