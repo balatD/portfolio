@@ -244,12 +244,16 @@ body {
   }
 }
 
-.brand-logo {
-  & h2 {
-    float: right;
-  }
-}
-
 .blur {
   filter: blur(3px);
+}
+
+.logo {
+  width: 120px;
+  height: 71px;
+  background: url("../images/png/logo2.png") no-repeat;
+  background-size: 120px 71px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
 }
