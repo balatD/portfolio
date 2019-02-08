@@ -1,8 +1,10 @@
 .landing-page {
   #main {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/336999/shinokubo_test.jpg);
-    background-size: cover, cover;
-    background-position: center, center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent), url(../images/jpg/abstract-business-code-270348.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
