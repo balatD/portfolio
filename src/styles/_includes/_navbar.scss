@@ -147,6 +147,16 @@ body {
   }
 }
 
+.b-link-icon {
+  font-size: $b-font-size;
+  font-weight: $b-font-weight;
+  margin-left: $b-margin-left;
+  text-decoration: none;
+  transition: $b-transition;
+  width: auto;
+  color: color(complement);
+}
+
 .b-menu {
   background: color(primary);
   border: color(primary) solid $b-border-width;

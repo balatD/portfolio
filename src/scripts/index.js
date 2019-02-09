@@ -153,25 +153,38 @@ $( document ).ready(function() {
                         return this.chars[Math.floor(Math.random() * this.chars.length)];
                     } }]);return TextScramble;}();
 
-                var phrases = [
-                    'Dragan Balatinac',
-                    'trainee frontend developer',
-                    'trainee backend developer',
-                    'photography',
-                    'guitar / drums'
-                ];
+        var phrases = [
+            'Dragan Balatinac',
+            'trainee frontend developer',
+            'trainee backend developer'
+        ];
 
 
-                var el = document.querySelector('.text');
-                var fx = new TextScramble(el);
+        var el = document.querySelector('.text');
+        var fx = new TextScramble(el);
 
-                var counter = 0;
-                var next = function next() {
-                    fx.setText(phrases[counter]).then(function () {
-                        setTimeout(next, 800);
-                    });
-                    counter = (counter + 1) % phrases.length;
-                };
+        var counter = 0;
+        var next = function next() {
+            fx.setText(phrases[counter]).then(function () {
+                setTimeout(next, 800);
+            });
+            counter = (counter + 1) % phrases.length;
+        };
 
-                next();
+        next();
+
+    //parallax footer
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $('.footer-text').fadeIn();
+        }
+    });
+
+    //toolkit flickity
+    $("#showcase").flickity({
+        wrapAround: true,
+        pageDots: false,
+        prevNextButtons: false,
+        autoPlay: 1500
+    });
 });
