@@ -1,0 +1,136 @@
+$grey: #797e83;
+$black: #0b0b0b;
+$white: #fff;
+
+$transition: .2s;
+
+$base__font-size: 16px;
+$bg-color: $grey;
+$br--default: .4em;
+
+$color-primary: lighten($black, 10%);
+
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+$font-weight--ultra-bold: 900;
+
+// EM calculator
+@function em($target, $context: $base__font-size) {
+  @return ($target / $context) * 1em;
+}
+
+// Color palette
+$palettes: (
+        grey: (
+                xx-light : lighten($grey, 43%),
+                x-light  : lighten($grey, 35%),
+                light    : lighten($grey, 12%),
+                base     : $grey,
+                dark     : darken($grey, 8%),
+                x-dark   : darken($grey, 16%)
+        ),
+        black: (
+                light    : lighten($black, 10%),
+                base     : $black,
+                dark     : darken($black, 10%)
+        )
+);
+
+@function palette($palette, $shade: 'base') {
+  @return map-get(map-get($palettes, $palette), $shade);
+}
+
+// BASE
+input, textarea {
+  display: block;
+  outline: 0;
+  border: 0;
+}
+
+input:focus,
+textarea:focus {
+  transition: $transition;
+}
+
+.container {
+  width: 60%;
+  margin: 2em auto;
+}
+
+// FORM
+
+.form {
+  width: 50%;
+  @media screen and (max-width: 900px) {
+    & {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    &--hidden {
+      // For screen readers
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    display: block;
+    margin-bottom: em(10px);
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 1em;
+    padding: em(15px, 18px);
+    margin-bottom: em(20px, 18px);
+    border-bottom: 6px solid palette(grey, x-light);
+    border-radius: $br--default;
+    background: white;
+    box-shadow: 0px 2px 6px 0px rgba(204, 209, 217, 0.5);
+    color: palette(black, dark);
+    font-weight: $font-weight--light;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+}
+
+%btn {
+  padding: em(15px) em(30px);
+  border: 0;
+  border-radius: $br--default;
+  color: $white;
+  text-transform: uppercase;
+  transition: opacity $transition;
+  display: block;
+  width: 100%;
+
+  &:hover {
+    opacity: .75;
+    cursor: pointer;
+  }
+}
+
+.btn {
+  &--default {
+    @extend %btn;
+    background-color: $color-primary;
+  }
+}
+
+
+[class^="btn--"] {
+  @extend %btn;
+  margin-bottom: em(20px, 14px);
+  width: auto;
+  display: inline-block;
+  margin-right: em(10px);
+}
